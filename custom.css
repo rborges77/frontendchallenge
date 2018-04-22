@@ -1,0 +1,242 @@
+body{
+    font-family: 'Pacifico', cursive;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+#company-header{
+    width: 100%;
+    height: 100px;
+    background-color: whitesmoke;
+}
+
+#company-logo{
+    height: 10%;
+    width: 10%;
+}
+
+#company-name{
+    vertical-align: center;
+    top: 20%;
+}
+
+.location-name{
+    color: #342259 ;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+
+.aligned-left{
+    text-align: left;
+}
+
+.location-name:hover{
+    color: #8d318d;
+}
+
+.location-description{
+    font-family: 'Cuprum', sans-serif;
+    color: #5e5b5e;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.category-separator{
+    text-align: right;
+    color: orangered;
+    width: 100%;
+}
+
+.line {
+    margin:0 0 1em;
+    line-height:2em;
+    padding:0;
+    color:orangered;
+    position:relative;
+    overflow:hidden;
+    text-align:right;
+}
+.line:before {
+    content:" ";
+    position:absolute;
+    top:50%;
+    margin-left:-999em;
+    height:2px;
+    width:998em;
+    border-top:1px solid orangered;
+}
+.line:after {
+    left:auto;
+    width:999em;
+    margin:0 0 0 1em;
+}
+
+.footer{
+    background-color: #8d318d;
+}
+
+.footer span{
+    color: white;
+}
+
+.footer span .fa{
+    color: white;
+}
+
+#footer-contacts p{
+    font-family: 'Cuprum', 'Sans serif';
+    color: white;
+    margin: 5px 15px;
+}
+
+#footer-social{
+    vertical-align: middle;
+    margin-top: 40px;
+}
+
+#footer-logo{
+    height: 10%;
+    width: 10%;
+    background-color: #8d318d;
+}
+
+.footer .fa {
+    color: #8d318d;
+}
+
+.bordered{
+    background-color: white;
+    margin-left: 2px;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.grayscaled{
+    filter: contrast(100%);
+    filter: grayscale(100%);
+}
+
+.imgLocation
+{
+    width:100%;
+}
+
+#prices{
+    text-align: center;
+}
+
+#prices span{
+    color: gray;
+    font-family: 'Pacifico', cursive;
+    display: none;
+}
+
+#prices span:hover{
+    display: block;
+}
+
+#prices span i{
+    background-color: gray;
+    color: black;
+}
+
+div .locationContainer{
+    position: relative;
+    background:#333;
+}
+
+div .locationContainer{
+    content:''; /* Required to display content */
+    position: absolute; /* Sets the position absolute to the top div */
+    top: 0; 
+    left: 50%;
+    margin-left: -50px; /* Set margin equal to border px */
+    width: 0;
+    z-index:1;
+    height: 0;
+    border-top: solid 15px #fff; /* Creates the notch */
+    border-left: solid 15px transparent; /* Creates triangle effect */
+    border-right: solid 15px transparent; /* Creates triangle effect */
+}
+
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+/* .item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+} */
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+    width: 10%;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+
+.item.list-group-item .thumbnail:hover{
+    cursor: pointer;
+}
+
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+
+.item.list-group-item
+{
+    border: 0;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+
+.item.list-group-item:hover .location-name{
+    cursor: pointer;
+    color: #8d318d;
+}
+
+.btn{
+    font-family: 'Cuprum', sans-serif;
+}
+
+.btn-toolbar{
+    margin-left: -25px;
+}

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Frontend Code Challenge">
+  <meta name="author" content="Ricardo Borges">
+  <!-- To be perfectly honest, I realize this is not the correct approach and it won't render properly on all devices. -->
+  <link rel="icon" href="/images/favicon/favicon-96x96.png">
+
+  <title>Travel Agency Frontend Challenge</title>
+
+  <!-- I know I should have probably have fallback in case CDNs fail, but for this specific challenge, when time is ticking, I decided to close my eyes to this issue.
+       CDNs are usually stable and have good uptime, but in a production environment I would still probably put a specific condition to evaluate if the CDN is available and fallback 
+       on local files if it isn't. -->
+
+  <!-- I included Bootstrap and started from there, because it would give me a good headstart and a reasonable, safe way to handle the issues at hand. 
+       Why 3.3.7 instead of the brand new Bootstrap 4? Simply because I haven't fiddled enough with BS4 and I feel more comfortable on BS3 :) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <!-- I needed font-awesome for the icons. I have used mostly Glyphicons before, but font-awesome is more versatile, specifically on the latest version that is 5. 
+       Reason for not using it is that, as similar to bootstrap, I've dealt with applications using 4.7 and I have not yet studied version 5 enough to control it fully. -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+
+  <!-- Google fonts for the both fonts needed -->
+  <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
+
+  <!-- Started by including a jumbotron-narrow template, as it seemed appropriate for the challenge. Realized it wasn't at all and cut it out afterwards. -->
+  <!-- <link href="jumbotron-narrow.css" rel="stylesheet"> -->
+
+  <!-- This is a specific CSS, that comes after bootstrap's so I can override some of their classes and adapt styles as I want to. -->
+  <link rel="stylesheet" href="custom.css">
+
+  <!-- JQuery, to make the animation magic happen. It will help me deal with animation, interactivity and most of native Javascript's quirks as well as adapt better to most browsers. -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+  <!-- Same as the custom.css, this is where I grab JQuery's functionality and decide how to use my own implementations to affect all the DOM elements and hook interaction and animation onto them. -->
+  <script src="js/custom.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <!-- Header start -->
+    <!-- The Row will guarantee I can use bootstrap columns further down and that it will have enough spacing between the row ending and the next content. -->
+    <div class="row">
+      <!-- Wrapper for the big gray header, including Logo + Company Name -->
+      <div id="company-header" class="col-xs-12">
+
+        <!-- Trying to restrain the logo as much as possible -->
+        <div id="company-logo" class="col-xs-6 col-md-4 col-md-offset-2">
+          <img src="images/logo/logo_large.png" class="img-responsive"></img>
+        </div>
+
+        <!-- Trying to make sure that the name doesn't overflow the image -->
+        <div id="company-name" class="col-md-6">
+          <h3>Travel Agency</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header ending -->
+
+  <!-- This container will make sure the entire content is not going to go over the specified limits -->
+  <div class="container">
+    <div class="row">
+      <div>
+        <!-- Now this was really fun. I struggled to get the lines behind text to work and had to research a lot to land it on a simple class .-->
+        <h3 class="line">Featured</h3>
+      </div>
+    </div>
+
+    <!-- Notice that this container is fluid unlike the last one. This is meant to fill in the rest of the website horizontally, in case there is any room for it. -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+          <div>
+            <a href="#">
+              <!-- Classes applied make sure that the div -->
+              <img src="images/places/monte_gordo_1024w.jpg" class="img-responsive imgLocation" alt="montegordo">
+              <div class="location-description">
+                <h4 class="location-name">Monte Gordo</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipscing elit.</p>
+              </div>
+              <div id="prices">
+                <span>
+                  <i class="fa fa-user" aria-hidden="true"></i>15€</span>
+                <span>
+                  <i class="fa fa-group" aria-hidden="true"></i>12€</span>
+                <span>
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>10€</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <a href="#">
+              <img src="images/places/albufeira_1024w.jpg" class="img-responsive imgLocation" alt="albufeira">
+              <div class="location-description">
+                <h4 class="location-name">Albufeira</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue nisi malesuada justo blandit posuere.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <a href="#">
+              <img src="images/places/sagres_1024w.jpg" class="img-responsive imgLocation" alt="sagres">
+              <div class="location-description">
+                <h4 class="location-name">Sagres</h4>
+                <p>Lorem ipsum.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <a href="#">
+              <img src="images/places/odeceixe_1024w.jpg" class="img-responsive imgLocation" alt="odeceixe">
+              <div class="location-description caption">
+                <h4 class="location-name">Odeceixe</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div>
+            <a href="#">
+              <img src="images/places/porto_covo_1024w.jpg" class="img-responsive imgLocation" alt="portocovo">
+              <div class="location-description">
+                <h4 class="location-name">Porto Covo</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue nisi malesuada justo blandit posuere.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="category-separator">
+        <h3 class="line">Algarve</h3>
+      </div>
+    </div>
+
+    <div class="well well-sm">
+      <div class="btn-group">
+        <a href="#" id="list" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+        <a href="#" id="grid" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th"></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="products" class="row list-group" role="group">
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/monte_gordo_1024w.jpg" alt="montegordo" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Monte Gordo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/albufeira_1024w.jpg" alt="albufeira" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Albufeira</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 18€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 8€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/sagres_1024w.jpg" alt="sagres" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Sagres</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/monte_gordo_1024w.jpg" alt="montegordo" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Monte Gordo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/albufeira_1024w.jpg" alt="albufeira" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Albufeira</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 18€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 8€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/sagres_1024w.jpg" alt="sagres" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Sagres</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/monte_gordo_1024w.jpg" alt="montegordo" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Monte Gordo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/albufeira_1024w.jpg" alt="albufeira" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Albufeira</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 18€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 8€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/sagres_1024w.jpg" alt="sagres" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Sagres</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/monte_gordo_1024w.jpg" alt="" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Monte Gordo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+              dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="category-separator">
+        <h3 class="line">Alentejo</h3>
+      </div>
+    </div>
+
+    <div id="products" class="row list-group" role="group">
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/odeceixe_1024w.jpg" alt="odeceixe" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Odeceixe</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/porto_covo_1024w.jpg" alt="portocovo" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Porto Covo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 18€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 8€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/sines_1024w.jpg" alt="sines" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Sines</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/odeceixe_1024w.jpg" alt="odeceixe" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Odeceixe</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/porto_covo_1024w.jpg" alt="portocovo" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Porto Covo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 18€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 8€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/sines_1024w.jpg" alt="sines" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Sines</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/odeceixe_1024w.jpg" alt="odeceixe" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Odeceixe</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/porto_covo_1024w.jpg" alt="portocovo" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Porto Covo</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, dolore magna aliquam erat volutpat.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 18€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 8€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/sines_1024w.jpg" alt="sines" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Sines</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item list-group-item col-xs-4">
+        <div class="thumbnail">
+          <img class="group list-group-image" src="images/places/odeceixe_1024w.jpg" alt="odeceixe" />
+          <div class="caption">
+            <h4 class="group inner list-group-item-heading location-name aligned-left">Odeceixe</h4>
+            <p class="group inner list-group-item-text location-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <div class="row">
+              <div class="btn-toolbar col-xs-4">
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp 15€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-group" aria-hidden="true"></i>&nbsp 12€</button>
+                <button class="btn btn-default btn-xs">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp 10€</button>
+              </div>
+              <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" href="#">book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+
+  <footer class="footer">
+    <div class="container">
+      <div id="footer-contacts" class="col-xs-4">
+        <p>
+          <span>
+            <i class="fa fa-building" aria-hidden="true"></i>
+          </span>&nbsp Str. Mouzinho de Albuquerque </p>
+        <p>8000-000 Faro</p>
+        <p>
+          <span>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+          </span>&nbsp +351 289 123 456</p>
+        <p>
+          <span>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </span>&nbsp info@travelagency.com</p>
+      </div>
+
+      <div id="footer-social" class="col-xs-4 col-xs-offset-1">
+        <div class="btn-group-vertical">
+          <button class="button button-xs">
+            <i class="fa fa-facebook"></i>
+          </button>
+          <button class="button button-xs">
+            <i class="fa fa-twitter"></i>
+          </button>
+          <button class="button button-xs">
+            <i class="fa fa-at"></i>
+          </button>
+          <button class="button button-xs">
+            <i class="fa fa-instagram"></i>
+          </button>
+          <button class="button button-xs">
+            <i class="fa fa-tumblr"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="footer-logo" class="col-xs-4">
+        <img src="images/logo/logo_large.png" alt="logo" class="img-responsive grayscaled"></img>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
