@@ -33,7 +33,7 @@
   <!-- <link href="jumbotron-narrow.css" rel="stylesheet"> -->
 
   <!-- This is a specific CSS, that comes after bootstrap's so I can override some of their classes and adapt styles as I want to. -->
-  <link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="/css/custom.css">
 
   <!-- JQuery, to make the animation magic happen. It will help me deal with animation, interactivity and most of native Javascript's quirks as well as adapt better to most browsers. -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -75,13 +75,12 @@
     </div>
 
     <!-- Notice that this container is fluid unlike the last one. This is meant to fill in the rest of the website horizontally, in case there is any room for it. -->
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-md-2 col-md-offset-1">
           <div>
             <a href="#">
-              <!-- Classes applied make sure that the div -->
-              <img src="images/places/monte_gordo_1024w.jpg" class="img-responsive imgLocation" alt="montegordo">
+              <img src="images/places/monte_gordo_1024w.jpg" class="img-responsive img-location" alt="montegordo">
               <div class="location-description">
                 <h4 class="location-name">Monte Gordo</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipscing elit.</p>
@@ -100,7 +99,7 @@
         <div class="col-md-2">
           <div>
             <a href="#">
-              <img src="images/places/albufeira_1024w.jpg" class="img-responsive imgLocation" alt="albufeira">
+              <img src="images/places/albufeira_1024w.jpg" class="img-responsive img-location" alt="albufeira">
               <div class="location-description">
                 <h4 class="location-name">Albufeira</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue nisi malesuada justo blandit posuere.</p>
@@ -111,7 +110,7 @@
         <div class="col-md-2">
           <div>
             <a href="#">
-              <img src="images/places/sagres_1024w.jpg" class="img-responsive imgLocation" alt="sagres">
+              <img src="images/places/sagres_1024w.jpg" class="img-responsive img-location" alt="sagres">
               <div class="location-description">
                 <h4 class="location-name">Sagres</h4>
                 <p>Lorem ipsum.</p>
@@ -122,7 +121,7 @@
         <div class="col-md-2">
           <div>
             <a href="#">
-              <img src="images/places/odeceixe_1024w.jpg" class="img-responsive imgLocation" alt="odeceixe">
+              <img src="images/places/odeceixe_1024w.jpg" class="img-responsive img-location" alt="odeceixe">
               <div class="location-description caption">
                 <h4 class="location-name">Odeceixe</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -133,7 +132,7 @@
         <div class="col-md-2">
           <div>
             <a href="#">
-              <img src="images/places/porto_covo_1024w.jpg" class="img-responsive imgLocation" alt="portocovo">
+              <img src="images/places/porto_covo_1024w.jpg" class="img-responsive img-location" alt="portocovo">
               <div class="location-description">
                 <h4 class="location-name">Porto Covo</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue nisi malesuada justo blandit posuere.</p>
@@ -398,6 +397,17 @@
       </div>
     </div>
 
+    <div class="well well-sm">
+      <div class="btn-group">
+        <a href="#" id="list" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+        <a href="#" id="grid" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-th"></span>
+        </a>
+      </div>
+    </div>
+
     <div id="products" class="row list-group" role="group">
       <div class="item list-group-item col-xs-4">
         <div class="thumbnail">
@@ -644,7 +654,7 @@
       </div>
 
       <div id="footer-social" class="col-xs-4 col-xs-offset-1">
-        <div class="btn-group-vertical">
+        <div class="btn-group">
           <button class="button button-xs">
             <i class="fa fa-facebook"></i>
           </button>

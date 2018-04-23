@@ -11,4 +11,3 @@ It wasn't resizing the image properly so I wrapped it in a boostrap div that cou
 After that, I started working on the featured content.
 I realized five divs wouldnt fit the bootstrap row properly as 12/5 = 2,4... and there was no way of dealing with it properly using boostrap's default. So, I made the first one offset, and then tried to make it behave
 as if I had actually 6 columns to deal with.
-I realized 

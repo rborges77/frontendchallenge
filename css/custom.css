@@ -116,13 +116,25 @@ body{
 }
 
 .grayscaled{
-    filter: contrast(100%);
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(100%);
 }
 
-.imgLocation
+.img-location
 {
-    width:100%;
+    position: relative;
+}
+
+.img-location:after{
+    content:'';
+    width: 0;
+    height: 0;
+    position:absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #000;
+    left:50%;
+    bottom:0;
+    margin-left:-20px; /** for older browsers **/
 }
 
 #prices{
@@ -239,4 +251,24 @@ div .locationContainer{
 
 .btn-toolbar{
     margin-left: -25px;
+}
+
+.btn-group{
+    border: 0;
+}
+
+.btn-group button:hover{
+    background-color: orangered;
+    border: 0;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid black;
+    margin-left: 50%;
+    /* margin-top: -5px; */
+    /* z-index: -1; */
 }
